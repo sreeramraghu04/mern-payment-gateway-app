@@ -25,7 +25,7 @@ const Cart = () => {
       console.log("Key:", key);
 
       const { data: orderData } = await axios.post(
-        "/api/v1/payment/process-payment",
+        "/api/v1/payment/payment-process",
         {
           amount,
         },

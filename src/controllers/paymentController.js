@@ -1,8 +1,8 @@
 import { instance } from "../../server.js";
 import config from "../config/config.js";
 
-//! processPayment controller
-export const processPayment = async (req, res) => {
+//! paymentProcess controller
+export const paymentProcess = async (req, res) => {
   try {
     //! get the amount from the frontend
     const { amount } = req.body;
