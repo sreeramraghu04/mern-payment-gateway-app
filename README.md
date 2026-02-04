@@ -57,7 +57,7 @@ A full-stack **Payment Gateway project** built using the **MERN stack**, integra
 
 ### After Buy Now Section
 
-- ![alt text](pg-afterbuynows.png)
+- ![alt text](pg-afterbuynow.png)
 
 ### Entering Card Details Section
 
