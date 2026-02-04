@@ -9,6 +9,7 @@ const app = express();
 app.use(cors()); //* always cors must be in top
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: true })); //* to print req.body in frontend
 
 //! routes
 app.use("/api/v1/payment", paymentRoutes);

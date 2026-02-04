@@ -1,5 +1,6 @@
 import { instance } from "../../server.js";
 import config from "../config/config.js";
+import crypto from "crypto";
 
 //! paymentProcess controller
 export const paymentProcess = async (req, res) => {
@@ -46,6 +47,55 @@ export const getKey = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Failed to retrieve key",
+    });
+  }
+};
+
+//! paymentVerification controller
+export const paymentVerification = async (req, res) => {
+  try {
+    //* destruscture payment details from req.body
+    const { razorpay_payment_id, razorpay_order_id, razorpay_signature } =
+      req.body;
+    //* create the verification string
+    // this exact format must match razorpays documentation
+    // even one character mismatch will lead to verificatiin failed
+    const body = razorpay_order_id + "|" + razorpay_payment_id;
+    //* generate expected signature using secret key
+    const expectedSignature = crypto
+      // we cannot replace 256
+      // razorpay hmac with sha256 to generate the signature on their site
+      .createHmac("sha256", process.env.RAZOR_KEY_SECRET)
+      // converts the hash output into a hexadecimal string
+      .update(body.toString())
+      // this is what server expect the signature to be
+      .digest("hex");
+    // logs for debugging (this is optional, remove in the production)
+    console.log("razorpay signature:", razorpay_signature);
+    console.log("expected signature:", expectedSignature);
+    //* compare signatures
+    if (expectedSignature === razorpay_signature) {
+      // payment is verified
+      return res.redirect(
+        `http://localhost:5173/payment-success?reference=${razorpay_payment_id}`,
+      );
+    } else {
+      // when payment verification failed
+      res.status(400).json({
+        success: false,
+        message: "Invalid payment signature",
+      });
+    }
+    res.status(200).json({
+      success: true,
+    });
+    /* console.log(req.body); */
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      message: "Error in payment verification",
+      error,
     });
   }
 };

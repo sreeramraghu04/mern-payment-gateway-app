@@ -1,5 +1,9 @@
 import express from "express";
-import { getKey, paymentProcess } from "../controllers/paymentController.js";
+import {
+  getKey,
+  paymentProcess,
+  paymentVerification,
+} from "../controllers/paymentController.js";
 
 const router = express.Router();
 
@@ -8,5 +12,8 @@ router.post("/payment-process", paymentProcess);
 
 //! getKey route (GET)
 router.get("/get-key", getKey);
+
+//! paymentVerification (POST)
+router.post("/payment-verification", paymentVerification);
 
 export default router;

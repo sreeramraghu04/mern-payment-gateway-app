@@ -54,7 +54,7 @@ const Products = () => {
             <p className="text-gray-500 mb-4">Price: ₹{product.price}/-</p>
 
             <button
-              className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600 cursor-pointer"
+              className="w-full bg-gray-500 text-white py-2 rounded hover:bg-gray-600 cursor-pointer"
               onClick={() => {
                 setCartItems([...cartItems, product]);
                 localStorage.setItem(
