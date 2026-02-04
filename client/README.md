@@ -1,16 +1,83 @@
-# React + Vite
+# 💳 Payment Gateway Integration (MERN Stack)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack **Payment Gateway project** built using the **MERN stack**, integrating **Razorpay** for secure online payments. This project demonstrates the complete payment flow from frontend checkout to backend verification.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- Product checkout
+- Razorpay payment integration
+- Backend order creation
+- Payment verification
+- Success & failure handling
+- Secure environment variables
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Frontend**
+
+- React.js
+- Axios
+- Tailwind CSS
+
+**Backend**
+
+- Node.js
+- Express.js
+- Razorpay SDK
+
+---
+
+## 💰 Payment Flow
+
+- Click Buy Now
+- Backend creates Razorpay order
+- Razorpay checkout opens
+- Payment processed
+- Backend verifies payment
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+
+- ![alt text](pg-homepage.png)
+
+### Products Page
+
+- ![alt text](pg-productspage.png)
+
+### Carts Page
+
+- ![alt text](pg-cartspage.png)
+
+### After Buy Now Section
+
+- ![alt text](pg-afterbuynows.png)
+
+### Entering Card Details Section
+
+- ![alt text](pg-carddetails.png)
+
+### Payment Successful Section
+
+- ![alt text](pg-paymentsuccessful.png)
+
+---
+
+## 📌 Learning Outcome
+
+- Razorpay integration
+- Secure payment handling
+- MERN full-stack workflow
+- API communication
+
+---
+
+## 🔗 Demo Link
+
+[Live Demo](https://payment-gateway.sreeramraghu.online/)
