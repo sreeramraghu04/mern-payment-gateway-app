@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true })); //* to print req.body in fronte
 app.use("/api/v1/payment", paymentRoutes);
 
 app.get("/", (req, res) => {
-  res.send("Payment-Gateway");
+  res.send("<h1>MERN Payment Gateway App</h1>");
 });
 
 export default app;
